@@ -1,0 +1,6 @@
+[submodule "adventure.server"]
+	path = adventure.server
+	url = https://github.com/martinFrank/adventure.server.git
+[submodule "adventure.client"]
+	path = adventure.client
+	url = https://github.com/martinFrank/adventure.client.git
