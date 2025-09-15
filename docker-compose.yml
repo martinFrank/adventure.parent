@@ -37,6 +37,13 @@ services:
       - "8080:8080"
     networks:
       - app-network
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_DATASOURCE_DRIVER=org.h2.Driver
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_DATASOURCE_DIALECT=org.hibernate.dialect.H2Dialect
+      - security.cors.allowedOrigins=http://localhost:3000,http://192.168.61.221:3000
 
 volumes:
   postgres_data:
