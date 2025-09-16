@@ -1,0 +1,16 @@
+
+
+submodule erstellen/hinzufügen:
+
+git submodule add https://github.com/martinFrank/adventure.server.git adventure.server
+
+
+
+as Parent-Repo enthält nur einen Verweis auf einen bestimmten Commit der Submodule.
+Änderungen in den Submodules müssen im jeweiligen Submodule-Repo gemacht und gepusht werden.
+Wenn du im Parent-Repo arbeitest, kannst du die Submodules aktualisieren mit:
+
+$>git submodule update --remote
+
+
+
