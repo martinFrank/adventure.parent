@@ -14,3 +14,12 @@ $>git submodule update --remote
 
 
 
+
+docker compuse build
+docker compuse up
+
+docker-compose up --build
+
+docker compose down
+
+
