@@ -15,11 +15,13 @@ $>git submodule update --remote
 
 
 
-docker compuse build
-docker compuse up
+docker-compose build
+docker-compuse up
 
 docker-compose up --build
 
-docker compose down
+docker-compose down
 
 
+
+docker-compose build backend && docker-compose up -d backend
