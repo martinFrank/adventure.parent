@@ -24,6 +24,13 @@ services:
     networks:
       - adventure-game-network
       - container_app_network 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adventure-game-frontend.entrypoints=websecure"
+      - "traefik.http.routers.adventure-game-frontend.rule=Host(`elitegames.v6.rocks`) && PathPrefix(`/adventure-game`)"
+      - "traefik.http.routers.adventure-game-frontend.tls.certresolver=letencrypt"
+      - "traefik.http.services.adventure-game-frontend.loadbalancer.server.port=80"
+      - "traefik.docker.network=container_app_network"
   
   backend:
     build:
@@ -34,6 +41,13 @@ services:
     networks:
       - adventure-game-network
       - container_app_network 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adventure-game-backend.entrypoints=websecure"
+      - "traefik.http.routers.adventure-game-backend.rule=Host(`elitegames.v6.rocks`) && PathPrefix(`/adventure-game-api`)"
+      - "traefik.http.routers.adventure-game-backend.tls.certresolver=letencrypt"
+      - "traefik.http.services.adventure-game-backend.loadbalancer.server.port=80"
+      - "traefik.docker.network=container_app_network"
 
 volumes:
   adventure-game-postgres-data:
