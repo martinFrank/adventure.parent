@@ -46,7 +46,7 @@ services:
       - "traefik.http.routers.adventure-game-backend.entrypoints=websecure"
       - "traefik.http.routers.adventure-game-backend.rule=Host(`elitegames.v6.rocks`) && PathPrefix(`/adventure-game-api`)"
       - "traefik.http.routers.adventure-game-backend.tls.certresolver=letencrypt"
-      - "traefik.http.services.adventure-game-backend.loadbalancer.server.port=80"
+      - "traefik.http.services.adventure-game-backend.loadbalancer.server.port=8080"
       - "traefik.docker.network=container_app_network"
 
 volumes:
