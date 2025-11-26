@@ -46,7 +46,7 @@ services:
       dockerfile: Dockerfile
       args:
         BACKEND_SUBPATH: "/adventure-game-api"  
-        CORS_LIST: "http://localhost:8680"
+        CORS_CSV_LIST: "http://localhost:8680"
     ports:
       - "8688:8080"
     environment:

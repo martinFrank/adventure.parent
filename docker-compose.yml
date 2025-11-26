@@ -44,12 +44,12 @@ services:
       dockerfile: Dockerfile
       args:
         BACKEND_SUBPATH: "/adventure-game-api"  
-        CORS_LIST: "https://elitegames.v6.rocks"
+        CORS_CSV_LIST: "https://elitegames.v6.rocks"
     ports:
       - "8688:8080"    
     environment:
       BACKEND_SUBPATH: "/adventure-game-api"  
-      CORS_LIST: "https://elitegames.v6.rocks"
+      CORS_CSV_LIST: "https://elitegames.v6.rocks"
     networks:
       - adventure-game-network
       - container_app_network 
