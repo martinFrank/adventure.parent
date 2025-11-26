@@ -44,10 +44,13 @@ services:
     build:
       context: ./adventure.server
       dockerfile: Dockerfile
+      args:
+        BACKEND_SUBPATH: "/adventure-game-api"  
+        CORS_LIST: "http://localhost:8680"
     ports:
       - "8688:8080"
     environment:
-      #application.properties
+      # application.properties
       BACKEND_SUBPATH: "/"       
       CORS_CSV_LIST: "http://localhost:8680"
     networks:
