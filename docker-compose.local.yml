@@ -18,13 +18,15 @@ services:
       context: ./adventure.client
       dockerfile: Dockerfile
       args:
-        VITE_FRONTEND_SUBPATH: "/adventure-game"
-        VITE_BACKEND_API_URL: "https://elitegames.v6.rocks/adventure-game-api"
+        VITE_FRONTEND_SUBPATH: "/"
+        VITE_BACKEND_API_URL: "http://localhost:8688"
     ports:
       - "8680:80"  # React über Nginx
     environment:
-      VITE_BACKEND_API_URL: "https://elitegames.v6.rocks/adventure-game-api"      
-      VITE_FRONTEND_SUBPATH: "/adventure-game"
+      # api.ts
+      VITE_BACKEND_API_URL: "http://localhost:8688"
+      # nginx.conf.template, vite.config.ts, main.tsx, docker-entrypoint.sh, vite-env.d.ts
+      VITE_FRONTEND_SUBPATH: "/"
     depends_on:
       - backend
     networks:
@@ -43,10 +45,11 @@ services:
       context: ./adventure.server
       dockerfile: Dockerfile
     ports:
-      - "8688:8080"    
+      - "8688:8080"
     environment:
-      BACKEND_SUBPATH: "/adventure-game-api"  
-      CORS_LIST: "https://elitegames.v6.rocks"
+      #application.properties
+      BACKEND_SUBPATH: "/"       
+      CORS_CSV_LIST: "http://localhost:8680"
     networks:
       - adventure-game-network
       - container_app_network 
@@ -61,7 +64,6 @@ services:
 volumes:
   adventure-game-postgres-data:
   
-
 networks:
   adventure-game-network:
     driver: bridge
